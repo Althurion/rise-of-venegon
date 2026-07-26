@@ -5,7 +5,11 @@ import { extractPack } from "@foundryvtt/foundryvtt-cli";
 
 const projectRoot = path.resolve(import.meta.dirname, "..");
 const packPath = path.join(projectRoot, "packs", "rise-of-venegon-npcs");
+const sourcePath = path.join(projectRoot, "source", "npcs.json");
+const reportPath = path.join(projectRoot, "source", "generated", "rise-of-venegon-npcs", "_build-report.json");
 const outputPath = await fs.mkdtemp(path.join(os.tmpdir(), "rise-of-venegon-pack-"));
+const source = JSON.parse(await fs.readFile(sourcePath, "utf8"));
+const report = JSON.parse(await fs.readFile(reportPath, "utf8"));
 
 async function walk(directory) {
   const files = [];
@@ -32,9 +36,15 @@ try {
   const items = actors.reduce((count, actor) => count + (actor.items?.length ?? 0), 0);
   const errors = [];
 
-  if (actors.length !== 60) errors.push(`Expected 60 packed actors, found ${actors.length}`);
-  if (folders.length !== 22) errors.push(`Expected 22 packed folders, found ${folders.length}`);
-  if (items !== 458) errors.push(`Expected 458 packed items, found ${items}`);
+  if (actors.length !== source.npcs.length) {
+    errors.push(`Expected ${source.npcs.length} packed actors, found ${actors.length}`);
+  }
+  if (folders.length !== report.folderCount) {
+    errors.push(`Expected ${report.folderCount} packed folders, found ${folders.length}`);
+  }
+  if (items !== report.itemCount) {
+    errors.push(`Expected ${report.itemCount} packed items, found ${items}`);
+  }
 
   if (errors.length) {
     for (const error of errors) console.error(error);

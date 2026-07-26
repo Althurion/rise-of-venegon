@@ -6,6 +6,7 @@ const generatedRoot = path.join(projectRoot, "source", "generated", "rise-of-ven
 const actorRoot = path.join(generatedRoot, "actors");
 const folderRoot = path.join(generatedRoot, "folders");
 const modulePath = path.join(projectRoot, "module.json");
+const sourcePath = path.join(projectRoot, "source", "npcs.json");
 
 async function readJsonFiles(directory) {
   const names = (await fs.readdir(directory)).filter((name) => name.endsWith(".json")).sort();
@@ -15,6 +16,7 @@ async function readJsonFiles(directory) {
 }
 
 const moduleJson = JSON.parse(await fs.readFile(modulePath, "utf8"));
+const source = JSON.parse(await fs.readFile(sourcePath, "utf8"));
 const actors = await readJsonFiles(actorRoot);
 const folders = await readJsonFiles(folderRoot);
 const report = JSON.parse(await fs.readFile(path.join(generatedRoot, "_build-report.json"), "utf8"));
@@ -31,7 +33,9 @@ let placeholderCount = 0;
 
 if (moduleJson.id !== "rise-of-venegon") errors.push("module.json id must be rise-of-venegon");
 if (moduleJson.compatibility.minimum !== "14.365") errors.push("Foundry minimum compatibility must be 14.365");
-if (actors.length !== 60) errors.push(`Expected 60 actors, found ${actors.length}`);
+if (actors.length !== source.npcs.length) {
+  errors.push(`Expected ${source.npcs.length} actors from source, found ${actors.length}`);
+}
 
 for (const folder of folders) {
   if (!folder._id || folder._key !== `!folders!${folder._id}`) errors.push(`Invalid folder key for ${folder.name}`);
@@ -76,6 +80,27 @@ for (const actor of actors) {
     if (hasAttackText && !hasAttackActivity) errors.push(`${actor.name}/${item.name} is missing its attack activity`);
     if (hasSaveText && !hasSaveActivity) errors.push(`${actor.name}/${item.name} is missing its save activity`);
     if (hasDamageRollText && !hasDamageActivity) errors.push(`${actor.name}/${item.name} is missing rollable damage`);
+    const attackMatch = description.match(/(?:(Melee|Ranged|Melee or Ranged)\s+)?(?:Weapon|Spell) Attack:\s*\+(\d+)\s+to hit/i);
+    if (attackMatch) {
+      const attackActivities = activities.filter((activity) => activity.type === "attack");
+      const expectedCount = attackMatch[1]?.toLowerCase() === "melee or ranged" ? 2 : 1;
+      if (attackActivities.length !== expectedCount) {
+        errors.push(`${actor.name}/${item.name} expected ${expectedCount} attack activities, found ${attackActivities.length}`);
+      }
+      for (const activity of attackActivities) {
+        if (String(activity.attack?.bonus) !== attackMatch[2]) {
+          errors.push(`${actor.name}/${item.name} attack bonus should be +${attackMatch[2]}`);
+        }
+      }
+    }
+    const saveMatch = description.match(/DC\s+(\d+)\s+(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)\s+saving throw/i);
+    if (saveMatch) {
+      for (const activity of activities.filter((candidate) => candidate.type === "save")) {
+        if (String(activity.save?.dc?.formula) !== saveMatch[1]) {
+          errors.push(`${actor.name}/${item.name} save DC should be ${saveMatch[1]}`);
+        }
+      }
+    }
     if (/^Recharge\b/i.test(qualifier)
       && !item.system.uses?.recovery?.some((recovery) => recovery.period === "recharge")) {
       errors.push(`${actor.name}/${item.name} is missing recharge recovery`);

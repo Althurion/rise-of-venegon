@@ -1,6 +1,6 @@
 {
   "name": "rise-of-venegon",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Foundry VTT v14 Actor compendium for the Rise of Venegon campaign.",

@@ -1,8 +1,8 @@
 {
   "id": "rise-of-venegon",
   "title": "Rise of Venegon",
-  "description": "A growing collection of ready-to-play Dungeons & Dragons Fifth Edition NPC Actors for the Rise of Venegon campaign. Version 0.1.0 contains the 60 Beneath the Living Mist statblocks.",
-  "version": "0.1.0",
+  "description": "A growing collection of ready-to-play Dungeons & Dragons Fifth Edition NPC Actors for the Rise of Venegon campaign. Version 0.2.0 contains 120 statblocks from Beneath the Living Mist and Beneath the Living Mist Volume II.",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": "14.365",
     "verified": "14.365"
@@ -61,7 +61,7 @@
   ],
   "url": "https://github.com/Althurion/rise-of-venegon",
   "manifest": "https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/module.json",
-  "download": "https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/releases/v0.1.0/rise-of-venegon.zip",
+  "download": "https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/releases/v0.2.0/rise-of-venegon.zip",
   "readme": "https://github.com/Althurion/rise-of-venegon/blob/main/README.md",
   "bugs": "https://github.com/Althurion/rise-of-venegon/issues"
 }

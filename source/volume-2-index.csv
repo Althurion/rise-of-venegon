@@ -1,0 +1,61 @@
+Chapter,Party,Section,NPC,CR,Role,Text File
+01_Dark_Elves,,Temple and Court Support,Velvet Shrine Page,1/8,Support | Cleric (Nhalyss Initiate),VTT_Statblocks/01_Dark_Elves/Temple_and_Court_Support/Velvet_Shrine_Page.txt
+01_Dark_Elves,,Temple and Court Support,Cleric of Nhalyss,8,Controller | Cleric (Trickery Domain),VTT_Statblocks/01_Dark_Elves/Temple_and_Court_Support/Cleric_of_Nhalyss.txt
+01_Dark_Elves,,Temple and Court Support,Unfading Chalice Vintner,12,Support | Cleric (Life Domain),VTT_Statblocks/01_Dark_Elves/Temple_and_Court_Support/Unfading_Chalice_Vintner.txt
+01_Dark_Elves,,Temple and Court Support,Master of Revel,15,Leader | Bard (College of Glamour),VTT_Statblocks/01_Dark_Elves/Temple_and_Court_Support/Master_of_Revel.txt
+01_Dark_Elves,,Temple and Court Support,Hierophant of Nhalyss,22,Controller | Cleric (Trickery Domain),VTT_Statblocks/01_Dark_Elves/Temple_and_Court_Support/Hierophant_of_Nhalyss.txt
+01_Dark_Elves,,Soldiers and Oathbound,Obsidian Host Battlemaster,8,Soldier | Fighter (Battle Master),VTT_Statblocks/01_Dark_Elves/Soldiers_and_Oathbound/Obsidian_Host_Battlemaster.txt
+01_Dark_Elves,,Soldiers and Oathbound,Eight-Knot Oathkeeper,9,Leader | Paladin (Oath of the Crown),VTT_Statblocks/01_Dark_Elves/Soldiers_and_Oathbound/Eight_Knot_Oathkeeper.txt
+01_Dark_Elves,,Soldiers and Oathbound,Sable Thread Ascetic,9,Skirmisher | Monk (Way of Shadow),VTT_Statblocks/01_Dark_Elves/Soldiers_and_Oathbound/Sable_Thread_Ascetic.txt
+01_Dark_Elves,,Soldiers and Oathbound,Obsidian Host Eldritch Knight,17,Soldier | Fighter (Eldritch Knight),VTT_Statblocks/01_Dark_Elves/Soldiers_and_Oathbound/Obsidian_Host_Eldritch_Knight.txt
+01_Dark_Elves,,Soldiers and Oathbound,Courtesy Saint of the Last Breath,19,Ambusher | Paladin (Oath of Vengeance),VTT_Statblocks/01_Dark_Elves/Soldiers_and_Oathbound/Courtesy_Saint_of_the_Last_Breath.txt
+01_Dark_Elves,,Ambushers and Hunters,Whisper-Court Initiate,1,Ambusher | Rogue (Inquisitive),VTT_Statblocks/01_Dark_Elves/Ambushers_and_Hunters/Whisper_Court_Initiate.txt
+01_Dark_Elves,,Ambushers and Hunters,Courtesy Venomist,3,Ambusher | Rogue (Assassin),VTT_Statblocks/01_Dark_Elves/Ambushers_and_Hunters/Courtesy_Venomist.txt
+01_Dark_Elves,,Ambushers and Hunters,Red Etiquette Shadow,10,Ambusher | Rogue (Assassin),VTT_Statblocks/01_Dark_Elves/Ambushers_and_Hunters/Red_Etiquette_Shadow.txt
+01_Dark_Elves,,Ambushers and Hunters,Gloamwarden Deep Stalker,11,Skirmisher | Ranger (Gloom Stalker),VTT_Statblocks/01_Dark_Elves/Ambushers_and_Hunters/Gloamwarden_Deep_Stalker.txt
+01_Dark_Elves,,Arcanists and Underlight Shapers,Argent Conservatory Adept,5,Artillery | Wizard (School of Evocation),VTT_Statblocks/01_Dark_Elves/Arcanists_and_Underlight_Shapers/Argent_Conservatory_Adept.txt
+01_Dark_Elves,,Arcanists and Underlight Shapers,Perfumed Root Tender,7,Support | Druid (Circle of the Land),VTT_Statblocks/01_Dark_Elves/Arcanists_and_Underlight_Shapers/Perfumed_Root_Tender.txt
+01_Dark_Elves,,Arcanists and Underlight Shapers,Choir-Below Hexer,10,Controller | Warlock (Great Old One Patron),VTT_Statblocks/01_Dark_Elves/Arcanists_and_Underlight_Shapers/Choir_Below_Hexer.txt
+01_Dark_Elves,,Arcanists and Underlight Shapers,Black Mirror Theurge,13,Controller | Wizard (School of Divination),VTT_Statblocks/01_Dark_Elves/Arcanists_and_Underlight_Shapers/Black_Mirror_Theurge.txt
+01_Dark_Elves,,Arcanists and Underlight Shapers,Cultivated Shape Warden,14,Brute | Druid (Circle of the Moon),VTT_Statblocks/01_Dark_Elves/Arcanists_and_Underlight_Shapers/Cultivated_Shape_Warden.txt
+01_Dark_Elves,,Arcanists and Underlight Shapers,Arch-Reflector of Seven Lives,24,Controller | Wizard (School of Divination),VTT_Statblocks/01_Dark_Elves/Arcanists_and_Underlight_Shapers/Arch_Reflector_of_Seven_Lives.txt
+02_Grey_Dwarves,,Compact Functionaries and Support,Tally-Priest Novice,1,Social | Cleric (Varkhul Novice),VTT_Statblocks/02_Grey_Dwarves/Compact_Functionaries_and_Support/Tally_Priest_Novice.txt
+02_Grey_Dwarves,,Compact Functionaries and Support,Toll-Oath Paladin of Varkhul,8,Leader | Paladin (Oath of the Crown),VTT_Statblocks/02_Grey_Dwarves/Compact_Functionaries_and_Support/Toll_Oath_Paladin_of_Varkhul.txt
+02_Grey_Dwarves,,Compact Functionaries and Support,Quiet Keeper Exorcist,9,Support | Cleric (Grave Domain),VTT_Statblocks/02_Grey_Dwarves/Compact_Functionaries_and_Support/Quiet_Keeper_Exorcist.txt
+02_Grey_Dwarves,,Compact Functionaries and Support,Contract Cantor,14,Leader | Bard (College of Eloquence),VTT_Statblocks/02_Grey_Dwarves/Compact_Functionaries_and_Support/Contract_Cantor.txt
+02_Grey_Dwarves,,Compact Functionaries and Support,Executor of the Low Compact,25,Leader | Paladin (Oath of Conquest),VTT_Statblocks/02_Grey_Dwarves/Compact_Functionaries_and_Support/Executor_of_the_Low_Compact.txt
+02_Grey_Dwarves,,Iron Line Soldiers and Brutes,Hold Levy,1/4,Soldier | Fighter (Guard),VTT_Statblocks/02_Grey_Dwarves/Iron_Line_Soldiers_and_Brutes/Hold_Levy.txt
+02_Grey_Dwarves,,Iron Line Soldiers and Brutes,Stonewall Battlemaster,8,Soldier | Fighter (Battle Master),VTT_Statblocks/02_Grey_Dwarves/Iron_Line_Soldiers_and_Brutes/Stonewall_Battlemaster.txt
+02_Grey_Dwarves,,Iron Line Soldiers and Brutes,Ashen Burden Zealot,9,Brute | Barbarian (Path of the Zealot),VTT_Statblocks/02_Grey_Dwarves/Iron_Line_Soldiers_and_Brutes/Ashen_Burden_Zealot.txt
+02_Grey_Dwarves,,Iron Line Soldiers and Brutes,Red Chain Cavalier,17,Leader | Fighter (Cavalier),VTT_Statblocks/02_Grey_Dwarves/Iron_Line_Soldiers_and_Brutes/Red_Chain_Cavalier.txt
+02_Grey_Dwarves,,Iron Line Soldiers and Brutes,Justiciar of the Shut Door,19,Soldier | Paladin (Oath of the Crown),VTT_Statblocks/02_Grey_Dwarves/Iron_Line_Soldiers_and_Brutes/Justiciar_of_the_Shut_Door.txt
+02_Grey_Dwarves,,Hidden Blades and Road Hunters,Unseen Blade Cutpurse,3,Ambusher | Rogue (Thief),VTT_Statblocks/02_Grey_Dwarves/Hidden_Blades_and_Road_Hunters/Unseen_Blade_Cutpurse.txt
+02_Grey_Dwarves,,Hidden Blades and Road Hunters,Riftcutter Scout,10,Skirmisher | Rogue (Scout),VTT_Statblocks/02_Grey_Dwarves/Hidden_Blades_and_Road_Hunters/Riftcutter_Scout.txt
+02_Grey_Dwarves,,Hidden Blades and Road Hunters,Low Road Pursuer,13,Skirmisher | Ranger (Hunter),VTT_Statblocks/02_Grey_Dwarves/Hidden_Blades_and_Road_Hunters/Low_Road_Pursuer.txt
+02_Grey_Dwarves,,Hidden Blades and Road Hunters,Null Choir Mind-Fist,15,Controller | Monk (Way of the Astral Self),VTT_Statblocks/02_Grey_Dwarves/Hidden_Blades_and_Road_Hunters/Null_Choir_Mind_Fist.txt
+02_Grey_Dwarves,,Forge and Underlight Arcanists,Cinder Savant,5,Artillery | Wizard (School of Evocation),VTT_Statblocks/02_Grey_Dwarves/Forge_and_Underlight_Arcanists/Cinder_Savant.txt
+02_Grey_Dwarves,,Forge and Underlight Arcanists,Muir Circle Breath-Keeper,7,Support | Druid (Circle of Spores),VTT_Statblocks/02_Grey_Dwarves/Forge_and_Underlight_Arcanists/Muir_Circle_Breath_Keeper.txt
+02_Grey_Dwarves,,Forge and Underlight Arcanists,Nhalga's Spore Warden,10,Controller | Druid (Circle of Spores),VTT_Statblocks/02_Grey_Dwarves/Forge_and_Underlight_Arcanists/Nhalga_s_Spore_Warden.txt
+02_Grey_Dwarves,,Forge and Underlight Arcanists,Furnace Column Evoker,11,Artillery | Wizard (School of Evocation),VTT_Statblocks/02_Grey_Dwarves/Forge_and_Underlight_Arcanists/Furnace_Column_Evoker.txt
+02_Grey_Dwarves,,Forge and Underlight Arcanists,Kept Ancestor Pact-Bearer,12,Controller | Warlock (Undead Patron),VTT_Statblocks/02_Grey_Dwarves/Forge_and_Underlight_Arcanists/Kept_Ancestor_Pact_Bearer.txt
+02_Grey_Dwarves,,Forge and Underlight Arcanists,Khurraz Dead-Forge Archmage,22,Artillery | Wizard (School of Abjuration),VTT_Statblocks/02_Grey_Dwarves/Forge_and_Underlight_Arcanists/Khurraz_Dead_Forge_Archmage.txt
+03_Deepwatch_Dwarves,,Gate Watch Soldiers and Defenders,Penitent Door Recruit,1/8,Soldier | Fighter (Recruit),VTT_Statblocks/03_Deepwatch_Dwarves/Gate_Watch_Soldiers_and_Defenders/Penitent_Door_Recruit.txt
+03_Deepwatch_Dwarves,,Gate Watch Soldiers and Defenders,Black Watch Guard,8,Soldier | Fighter (Battle Master),VTT_Statblocks/03_Deepwatch_Dwarves/Gate_Watch_Soldiers_and_Defenders/Black_Watch_Guard.txt
+03_Deepwatch_Dwarves,,Gate Watch Soldiers and Defenders,Gate Watch Oathshield,8,Leader | Paladin (Oath of the Crown),VTT_Statblocks/03_Deepwatch_Dwarves/Gate_Watch_Soldiers_and_Defenders/Gate_Watch_Oathshield.txt
+03_Deepwatch_Dwarves,,Gate Watch Soldiers and Defenders,Black Watch Breach Captain,15,Leader | Fighter (Battle Master),VTT_Statblocks/03_Deepwatch_Dwarves/Gate_Watch_Soldiers_and_Defenders/Black_Watch_Breach_Captain.txt
+03_Deepwatch_Dwarves,,Gate Watch Soldiers and Defenders,Dain of the Black,19,Leader | Paladin (Oath of the Watchers),VTT_Statblocks/03_Deepwatch_Dwarves/Gate_Watch_Soldiers_and_Defenders/Dain_of_the_Black.txt
+03_Deepwatch_Dwarves,,Road Watch Scouts and Skirmishers,Gate Watch Lockrunner,3,Skirmisher | Rogue (Thief),VTT_Statblocks/03_Deepwatch_Dwarves/Road_Watch_Scouts_and_Skirmishers/Gate_Watch_Lockrunner.txt
+03_Deepwatch_Dwarves,,Road Watch Scouts and Skirmishers,Road Watch Trailwarden,5,Skirmisher | Ranger (Hunter),VTT_Statblocks/03_Deepwatch_Dwarves/Road_Watch_Scouts_and_Skirmishers/Road_Watch_Trailwarden.txt
+03_Deepwatch_Dwarves,,Road Watch Scouts and Skirmishers,Road Watch Gloomrunner,10,Ambusher | Rogue (Scout),VTT_Statblocks/03_Deepwatch_Dwarves/Road_Watch_Scouts_and_Skirmishers/Road_Watch_Gloomrunner.txt
+03_Deepwatch_Dwarves,,Road Watch Scouts and Skirmishers,Osk of the Black,13,Leader | Ranger (Gloom Stalker),VTT_Statblocks/03_Deepwatch_Dwarves/Road_Watch_Scouts_and_Skirmishers/Osk_of_the_Black.txt
+03_Deepwatch_Dwarves,,Fang Watch Brutes and Hunters,Fang Watch Rager,9,Brute | Barbarian (Path of the Beast),VTT_Statblocks/03_Deepwatch_Dwarves/Fang_Watch_Brutes_and_Hunters/Fang_Watch_Rager.txt
+03_Deepwatch_Dwarves,,Fang Watch Brutes and Hunters,Fang Watch Monster-Slayer,11,Skirmisher | Ranger (Monster Slayer),VTT_Statblocks/03_Deepwatch_Dwarves/Fang_Watch_Brutes_and_Hunters/Fang_Watch_Monster_Slayer.txt
+03_Deepwatch_Dwarves,,Fang Watch Brutes and Hunters,Morn of the Black,12,Soldier | Fighter (Champion),VTT_Statblocks/03_Deepwatch_Dwarves/Fang_Watch_Brutes_and_Hunters/Morn_of_the_Black.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Black Ledger Acolyte,1,Support | Cleric (Grave Domain),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Black_Ledger_Acolyte.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Low Garden Mist-Tender,7,Support | Druid (Circle of the Land),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Low_Garden_Mist_Tender.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Kelda's Field Chirurgeon,9,Support | Cleric (Life Domain),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Kelda_s_Field_Chirurgeon.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Lantern Watch Runecaster,10,Controller | Wizard (School of Abjuration),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Lantern_Watch_Runecaster.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,High Stonesinger Orva,14,Leader | Cleric (Forge Domain),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/High_Stonesinger_Orva.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Kelda of the Black,17,Support | Druid (Circle of Spores),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Kelda_of_the_Black.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Maw Door Runelord,22,Controller | Wizard (School of Abjuration),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Maw_Door_Runelord.txt
+03_Deepwatch_Dwarves,,Lantern Watch Controllers and Support,Black Clan Marshal,24,Leader | Fighter (Banneret),VTT_Statblocks/03_Deepwatch_Dwarves/Lantern_Watch_Controllers_and_Support/Black_Clan_Marshal.txt

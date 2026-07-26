@@ -51,7 +51,7 @@ for (const record of source.npcs) {
 
   const result = parseActor({
     ...record,
-    supplement: source.supplement,
+    supplement: record.supplement ?? source.supplement,
     chapterLabel
   }, childFolders.get(folderKey), artMap);
   actors.push(result.actor);

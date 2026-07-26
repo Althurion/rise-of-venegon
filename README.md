@@ -3,9 +3,11 @@
 Rise of Venegon is a Foundry Virtual Tabletop content module for Foundry v14
 Build 365 and the Dungeons & Dragons Fifth Edition system v5.3.3.
 
-Version 0.1.0 contains 60 ready-to-play NPC Actors from *Beneath the Living
-Mist*. They are held in one Actor compendium and arranged into nested folders
-for Dark Elves, Grey Dwarves, Deepwatch Dwarves, and three adventuring parties.
+Version 0.2.0 contains 120 ready-to-play NPC Actors from *Beneath the Living
+Mist* and *Beneath the Living Mist, Volume II: Classbound NPCs of the Umbral
+Marches*. They are held in one Actor compendium and arranged into nested
+folders for Dark Elves, Grey Dwarves, Deepwatch Dwarves, and three adventuring
+parties.
 
 ## Install
 
@@ -47,10 +49,20 @@ New text statblocks can be consolidated with:
 npm run import:statblocks -- /path/to/VTT_Statblocks /path/to/NPC_Index.csv
 ```
 
-After updating `version` and the versioned download URL in `module.json`,
-commit and push the changes to `main`. GitHub Actions builds the compendium and
-creates or refreshes the matching release. The stable manifest remains
-available from `main`.
+Add a later volume without replacing existing Actors by passing `--append`,
+an attribution, and a unique path prefix:
+
+```bash
+npm run import:statblocks -- /path/to/VTT_Statblocks /path/to/NPC_Index.csv \
+  --append \
+  --supplement="Beneath the Living Mist, Volume II" \
+  --path-prefix=volume-ii
+```
+
+After updating `version` and the versioned download URL in `module.json`, commit
+and push the changes to `main`. GitHub Actions builds the compendium and creates
+or refreshes the matching release. The stable manifest remains available from
+`main`.
 
 ## Adding actor art
 

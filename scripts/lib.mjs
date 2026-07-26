@@ -421,7 +421,7 @@ function featureIcon(section, activities) {
   return "icons/svg/aura.svg";
 }
 
-function makeFeature(actorId, rawTitle, description, section, index) {
+function makeFeature(actorId, rawTitle, description, section, index, sourceName) {
   const { name, qualifier } = splitTitle(rawTitle);
   const seed = `${actorId}:${section}:${index}:${name}`;
   const id = stableId(seed);
@@ -446,7 +446,7 @@ function makeFeature(actorId, rawTitle, description, section, index) {
         chat: ""
       },
       source: {
-        custom: "Beneath the Living Mist",
+        custom: sourceName,
         book: "",
         page: "",
         license: "",
@@ -653,7 +653,7 @@ function skillData(value, ability, bonus = "") {
   };
 }
 
-function parseFeatures(lines, actorId, warnings) {
+function parseFeatures(lines, actorId, warnings, sourceName) {
   const sections = {
     traits: [],
     actions: [],
@@ -703,7 +703,7 @@ function parseFeatures(lines, actorId, warnings) {
   let index = 1;
   for (const [sectionName, features] of Object.entries(sections)) {
     for (const feature of features) {
-      items.push(makeFeature(actorId, feature.title, feature.description, sectionName, index));
+      items.push(makeFeature(actorId, feature.title, feature.description, sectionName, index, sourceName));
       index += 1;
     }
   }
@@ -714,6 +714,7 @@ function parseFeatures(lines, actorId, warnings) {
 
 export function parseActor(record, folderId, artMap = {}) {
   const warnings = [];
+  const sourceName = record.supplement ?? "Beneath the Living Mist";
   const lines = record.text
     .replaceAll("\r\n", "\n")
     .split("\n")
@@ -787,7 +788,7 @@ export function parseActor(record, folderId, artMap = {}) {
     else skills[key] = skillData(0, ability, signed(difference));
   }
 
-  const { items, legendaryActions } = parseFeatures(featureLines, actorId, warnings);
+  const { items, legendaryActions } = parseFeatures(featureLines, actorId, warnings, sourceName);
   const legendaryResistance = items.find((item) => item.name === "Legendary Resistance");
   const art = artMap[slug] ?? {};
   const img = art.img ?? "icons/svg/mystery-man.svg";
@@ -905,7 +906,7 @@ export function parseActor(record, folderId, artMap = {}) {
         lair: { value: false, initiative: 20, inside: false }
       },
       source: {
-        custom: "Beneath the Living Mist",
+        custom: sourceName,
         book: "",
         page: "",
         license: "",
