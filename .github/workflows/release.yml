@@ -1,3 +1,4 @@
+# Publishes the version declared in module.json.
 name: Release Foundry Module
 
 on:
