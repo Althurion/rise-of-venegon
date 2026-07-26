@@ -1,0 +1,67 @@
+{
+  "id": "rise-of-venegon",
+  "title": "Rise of Venegon",
+  "description": "A growing collection of ready-to-play Dungeons & Dragons Fifth Edition NPC Actors for the Rise of Venegon campaign. Version 0.1.0 contains the 60 Beneath the Living Mist statblocks.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "14.365",
+    "verified": "14.365"
+  },
+  "authors": [
+    {
+      "name": "Alex"
+    }
+  ],
+  "system": [
+    "dnd5e"
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "manifest": "https://github.com/foundryvtt/dnd5e/releases/download/release-5.3.3/system.json",
+        "compatibility": {
+          "minimum": "5.3.3",
+          "verified": "5.3.3"
+        }
+      }
+    ]
+  },
+  "packs": [
+    {
+      "name": "rise-of-venegon-npcs",
+      "label": "Rise of Venegon NPCs",
+      "path": "packs/rise-of-venegon-npcs",
+      "type": "Actor",
+      "system": "dnd5e",
+      "ownership": {
+        "PLAYER": "NONE",
+        "TRUSTED": "NONE",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {
+        "dnd5e": {
+          "types": [
+            "npc"
+          ]
+        }
+      }
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Rise of Venegon",
+      "sorting": "a",
+      "color": "#31584d",
+      "packs": [
+        "rise-of-venegon-npcs"
+      ]
+    }
+  ],
+  "url": "https://github.com/Althurion/rise-of-venegon",
+  "manifest": "https://github.com/Althurion/rise-of-venegon/releases/latest/download/module.json",
+  "download": "https://github.com/Althurion/rise-of-venegon/releases/download/v0.1.0/rise-of-venegon.zip",
+  "readme": "https://github.com/Althurion/rise-of-venegon/blob/main/README.md",
+  "bugs": "https://github.com/Althurion/rise-of-venegon/issues"
+}

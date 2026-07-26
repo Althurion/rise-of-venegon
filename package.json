@@ -1,0 +1,21 @@
+{
+  "name": "rise-of-venegon",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Foundry VTT v14 Actor compendium for the Rise of Venegon campaign.",
+  "scripts": {
+    "import:statblocks": "node scripts/import-statblocks.mjs",
+    "build:source": "node scripts/generate-actors.mjs",
+    "build:pack": "node scripts/build-compendium.mjs",
+    "build": "npm run build:source && npm run validate && npm run build:pack && npm run validate:pack",
+    "validate": "node scripts/validate.mjs",
+    "validate:pack": "node scripts/validate-pack.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "3.0.4"
+  }
+}
