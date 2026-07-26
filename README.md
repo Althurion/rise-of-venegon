@@ -12,7 +12,7 @@ for Dark Elves, Grey Dwarves, Deepwatch Dwarves, and three adventuring parties.
 In Foundry Setup, open **Add-on Modules**, choose **Install Module**, and paste:
 
 ```text
-https://github.com/Althurion/rise-of-venegon/releases/latest/download/module.json
+https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/module.json
 ```
 
 Enable **Rise of Venegon** in a dnd5e world. The **Rise of Venegon NPCs**
@@ -47,10 +47,10 @@ New text statblocks can be consolidated with:
 npm run import:statblocks -- /path/to/VTT_Statblocks /path/to/NPC_Index.csv
 ```
 
-After updating `version` and the release URLs in `module.json`, commit and push
-the changes to `main`. GitHub Actions builds the compendium and creates or
-refreshes the matching release, publishing both the installable ZIP and the
-stable `module.json` manifest asset.
+After updating `version` and the versioned download URL in `module.json`,
+commit and push the changes to `main`. GitHub Actions builds the compendium and
+creates or refreshes the matching release. The stable manifest remains
+available from `main`.
 
 ## Adding actor art
 
