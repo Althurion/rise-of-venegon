@@ -1,8 +1,8 @@
 {
   "id": "rise-of-venegon",
   "title": "Rise of Venegon",
-  "description": "A growing collection of ready-to-play Dungeons & Dragons Fifth Edition NPC Actors for the Rise of Venegon campaign. Version 0.3.0 contains all 120 remastered Beneath the Living Mist Volume I and Volume II statblocks.",
-  "version": "0.3.0",
+  "description": "A growing collection of ready-to-play Dungeons & Dragons Fifth Edition NPC Actors for the Rise of Venegon campaign. Version 0.3.1 contains 127 actors, including the Deepwatch Commoner and Last Door Cell, with assigned and wildcard token artwork.",
+  "version": "0.3.1",
   "compatibility": {
     "minimum": "14.365",
     "verified": "14.365"
@@ -61,7 +61,7 @@
   ],
   "url": "https://github.com/Althurion/rise-of-venegon",
   "manifest": "https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/module.json",
-  "download": "https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/releases/v0.3.0/rise-of-venegon.zip",
+  "download": "https://raw.githubusercontent.com/Althurion/rise-of-venegon/main/releases/v0.3.1/rise-of-venegon.zip",
   "readme": "https://github.com/Althurion/rise-of-venegon/blob/main/README.md",
   "bugs": "https://github.com/Althurion/rise-of-venegon/issues"
 }

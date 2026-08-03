@@ -784,7 +784,7 @@ export function parseActor(record, folderId, artMap = {}) {
   const hpLine = header.find((line) => line.startsWith("Hit Points "));
   const speedLine = header.find((line) => line.startsWith("Speed "));
   const acMatch = acLine?.match(/^Armor Class\s+(\d+)(?:\s+\(([^)]+)\))?/i);
-  const hpMatch = hpLine?.match(/^Hit Points\s+(\d+)\s+\(([^)]+)\)/i);
+  const hpMatch = hpLine?.match(/^Hit Points\s+(\d+)(?:\s+\(([^)]+)\))?/i);
   if (!acMatch || !hpMatch || !speedLine) throw new Error(`Missing AC, HP, or Speed for ${name}`);
 
   const challengeLine = fields.find((line) => line.startsWith("Challenge "));
@@ -825,6 +825,7 @@ export function parseActor(record, folderId, artMap = {}) {
   const art = artMap[slug] ?? {};
   const img = art.img ?? "icons/svg/mystery-man.svg";
   const token = art.token ?? img;
+  const randomImg = art.randomImg === true;
   const tokenSize = TOKEN_SIZES[identity.size] ?? 1;
   const senseLine = fields.find((line) => line.startsWith("Senses "));
   const languageLine = fields.find((line) => line.startsWith("Languages "));
@@ -851,7 +852,7 @@ export function parseActor(record, folderId, artMap = {}) {
           max: Number(hpMatch[1]),
           temp: 0,
           tempmax: 0,
-          formula: hpMatch[2].replaceAll(/\s+/g, " ").trim()
+          formula: hpMatch[2]?.replaceAll(/\s+/g, " ").trim() ?? String(hpMatch[1])
         },
         init: {
           ability: "",
@@ -959,7 +960,7 @@ export function parseActor(record, folderId, artMap = {}) {
       bar1: { attribute: "attributes.hp" },
       bar2: { attribute: null },
       flags: {},
-      randomImg: false,
+      randomImg,
       alpha: 1,
       texture: {
         src: token,
@@ -1022,7 +1023,8 @@ export function parseActor(record, folderId, artMap = {}) {
         faction: record.faction ?? "",
         mechanicFamily: record.mechanicFamily ?? "",
         actualSpells: record.actualSpells ?? "",
-        placeholderArt: !art.img && !art.token
+        placeholderArt: !art.img && !art.token,
+        wildcardToken: randomImg
       }
     },
     _stats: {

@@ -3,11 +3,11 @@
 Rise of Venegon is a Foundry Virtual Tabletop content module for Foundry v14
 Build 365 and the Dungeons & Dragons Fifth Edition system v5.3.3.
 
-Version 0.3.0 contains the 120 remastered NPC Actors from *Beneath the Living
-Mist*, Volumes I and II. Every previous statblock has been replaced while actor
-IDs and compendium paths remain stable. The Actors are held in one compendium
-and arranged into nested folders for Dark Elves, Grey Dwarves, Deepwatch
-Dwarves, and three adventuring parties.
+Version 0.3.1 contains 127 NPC Actors: the 120 remastered Actors from *Beneath
+the Living Mist*, Volumes I and II, the Deepwatch Commoner, and the six members
+of the Last Door Cell. Existing actor IDs and compendium paths remain stable.
+The Deepwatch Commoner has its own folder beneath Deepwatch Dwarves, while the
+Last Door Cell has its own folder beneath Dark Elves.
 
 ## Install
 
@@ -33,8 +33,11 @@ compendium will appear in the Compendium Packs sidebar.
   ability, caster level, and spell-slot resources are populated.
 - Recharge, daily uses, and legendary-action costs are represented by dnd5e
   activities and resources.
-- Prototype tokens are unlinked and use Foundry's placeholder until artwork is
-  assigned through `source/art-map.json`.
+- Prototype tokens are unlinked. Named Last Door Cell actors use their assigned
+  image directly; Deepwatch Commoner, Black Watch Guard, and Deepwatch
+  Roadwarden use Foundry wildcard token images from their respective folders.
+- Actors without assigned artwork continue to use Foundry's neutral
+  placeholder.
 
 ## Updating the compendium
 

@@ -7,6 +7,7 @@ const actorRoot = path.join(generatedRoot, "actors");
 const folderRoot = path.join(generatedRoot, "folders");
 const modulePath = path.join(projectRoot, "module.json");
 const sourcePath = path.join(projectRoot, "source", "npcs.json");
+const artMapPath = path.join(projectRoot, "source", "art-map.json");
 
 async function readJsonFiles(directory) {
   const names = (await fs.readdir(directory)).filter((name) => name.endsWith(".json")).sort();
@@ -17,6 +18,7 @@ async function readJsonFiles(directory) {
 
 const moduleJson = JSON.parse(await fs.readFile(modulePath, "utf8"));
 const source = JSON.parse(await fs.readFile(sourcePath, "utf8"));
+const artMap = JSON.parse(await fs.readFile(artMapPath, "utf8"));
 const sourceByPath = new Map(source.npcs.map((record) => [record.path, record]));
 const actors = await readJsonFiles(actorRoot);
 const folders = await readJsonFiles(folderRoot);
@@ -32,6 +34,25 @@ let saveCount = 0;
 let healCount = 0;
 let placeholderCount = 0;
 let spellcasterCount = 0;
+let wildcardTokenCount = 0;
+let assignedArtCount = 0;
+
+function moduleAssetPath(value) {
+  const prefix = "modules/rise-of-venegon/";
+  if (!value?.startsWith(prefix)) return null;
+  return path.join(projectRoot, value.slice(prefix.length));
+}
+
+async function wildcardMatches(value) {
+  const absolute = moduleAssetPath(value);
+  if (!absolute || !absolute.endsWith("*.png")) return [];
+  const directory = path.dirname(absolute);
+  try {
+    return (await fs.readdir(directory)).filter((name) => name.endsWith(".png"));
+  } catch {
+    return [];
+  }
+}
 
 if (moduleJson.id !== "rise-of-venegon") errors.push("module.json id must be rise-of-venegon");
 if (moduleJson.compatibility.minimum !== "14.365") errors.push("Foundry minimum compatibility must be 14.365");
@@ -55,8 +76,32 @@ for (const actor of actors) {
   if (!Number.isFinite(actor.system?.details?.cr)) errors.push(`${actor.name} has an invalid CR`);
   if (actor.prototypeToken?.actorLink !== false) errors.push(`${actor.name} must use an unlinked prototype token`);
   if (actor.flags?.["rise-of-venegon"]?.placeholderArt) placeholderCount += 1;
+  else assignedArtCount += 1;
   const sourceRecord = sourceByPath.get(actor.flags?.["rise-of-venegon"]?.sourcePath);
   if (!sourceRecord) errors.push(`${actor.name} has no matching source record`);
+
+  const art = artMap[actor.flags?.["rise-of-venegon"]?.slug];
+  if (art) {
+    const actorImage = moduleAssetPath(actor.img);
+    if (!actorImage) errors.push(`${actor.name} actor image is not module-relative`);
+    else {
+      try { await fs.access(actorImage); } catch { errors.push(`${actor.name} actor image does not exist`); }
+    }
+
+    if (art.randomImg === true) {
+      wildcardTokenCount += 1;
+      if (actor.prototypeToken.randomImg !== true) errors.push(`${actor.name} wildcard token is not enabled`);
+      const matches = await wildcardMatches(actor.prototypeToken.texture.src);
+      if (matches.length < 2) errors.push(`${actor.name} wildcard path resolves to fewer than two PNGs`);
+    } else {
+      if (actor.prototypeToken.randomImg !== false) errors.push(`${actor.name} unexpectedly enables wildcard tokens`);
+      const tokenImage = moduleAssetPath(actor.prototypeToken.texture.src);
+      if (!tokenImage) errors.push(`${actor.name} token image is not module-relative`);
+      else {
+        try { await fs.access(tokenImage); } catch { errors.push(`${actor.name} token image does not exist`); }
+      }
+    }
+  }
 
   if (sourceRecord?.actualSpells === "Yes") {
     spellcasterCount += 1;
@@ -165,6 +210,8 @@ console.log(JSON.stringify({
   saves: saveCount,
   heals: healCount,
   spellcasters: spellcasterCount,
+  assignedArt: assignedArtCount,
+  wildcardTokens: wildcardTokenCount,
   placeholderArt: placeholderCount,
   parserWarnings: warnings.length
 }, null, 2));

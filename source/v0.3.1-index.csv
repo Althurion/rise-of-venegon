@@ -1,0 +1,8 @@
+Text File,Chapter,Battlefield Function,NPC,CR,Role,Ledger ID,Class Lens,Faction,Mechanic Family,Actual Spells
+01_Dark_Elves/Last_Door_Cell/Black_Latch_Arcanist.txt,01_Dark_Elves,Last Door Cell,Black-Latch Arcanist,13,Controller,BLM-122,Wizard (Abjuration),Last Door Cell,containment and pursuit,Yes
+01_Dark_Elves/Last_Door_Cell/Choir_Below_Breath_Catcher.txt,01_Dark_Elves,Last Door Cell,Choir-Below Breath-Catcher,13,Skirmisher,BLM-123,Rogue / silence hunter,Last Door Cell,silence and pursuit,No
+01_Dark_Elves/Last_Door_Cell/Courtesy_Mortuary_Confessor.txt,01_Dark_Elves,Last Door Cell,Courtesy Mortuary Confessor,13,Support,BLM-124,Cleric,Last Door Cell,healing denial and control,Yes
+01_Dark_Elves/Last_Door_Cell/Last_Door_Cellmaster.txt,01_Dark_Elves,Last Door Cell,Last Door Cellmaster,14,Leader,BLM-125,Rogue / tactical leader,Last Door Cell,coordination and restraint,No
+01_Dark_Elves/Last_Door_Cell/Nereza_Final_Knife.txt,01_Dark_Elves,Last Door Cell,Nereza Final Knife,13,Assassin,BLM-126,Rogue (Assassin),Last Door Cell,execution and pursuit,No
+01_Dark_Elves/Last_Door_Cell/Thread_Borne_Retriever.txt,01_Dark_Elves,Last Door Cell,Thread-Borne Retriever,12,Controller,BLM-127,Rogue / grappler,Last Door Cell,retrieval and forced movement,No
+03_Deepwatch_Dwarves/Deepwatch_Commoner/Deepwatch_Commoner.txt,03_Deepwatch_Dwarves,Deepwatch Commoner,Deepwatch Commoner,0,Civilian,BLM-121,Commoner,Deepwatch,civilian baseline,No

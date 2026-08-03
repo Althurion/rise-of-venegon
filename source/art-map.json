@@ -1,1 +1,41 @@
-{}
+{
+  "black-latch-arcanist": {
+    "img": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/black-latch-arcanist.png",
+    "token": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/black-latch-arcanist.png"
+  },
+  "black-watch-guard": {
+    "img": "modules/rise-of-venegon/assets/tokens/deepwatch/black-watch-guard/black-watch-guard-01.png",
+    "token": "modules/rise-of-venegon/assets/tokens/deepwatch/black-watch-guard/*.png",
+    "randomImg": true
+  },
+  "choir-below-breath-catcher": {
+    "img": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/choir-below-breath-catcher.png",
+    "token": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/choir-below-breath-catcher.png"
+  },
+  "courtesy-mortuary-confessor": {
+    "img": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/courtesy-mortuary-confessor.png",
+    "token": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/courtesy-mortuary-confessor.png"
+  },
+  "deepwatch-commoner": {
+    "img": "modules/rise-of-venegon/assets/tokens/deepwatch/deepwatch-commoner/deepwatch-commoner-01.png",
+    "token": "modules/rise-of-venegon/assets/tokens/deepwatch/deepwatch-commoner/*.png",
+    "randomImg": true
+  },
+  "deepwatch-roadwarden": {
+    "img": "modules/rise-of-venegon/assets/tokens/deepwatch/deepwatch-roadwarden/deepwatch-roadwarden-01.png",
+    "token": "modules/rise-of-venegon/assets/tokens/deepwatch/deepwatch-roadwarden/*.png",
+    "randomImg": true
+  },
+  "last-door-cellmaster": {
+    "img": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/last-door-cellmaster.png",
+    "token": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/last-door-cellmaster.png"
+  },
+  "nereza-final-knife": {
+    "img": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/nereza-final-knife.png",
+    "token": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/nereza-final-knife.png"
+  },
+  "thread-borne-retriever": {
+    "img": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/thread-borne-retriever.png",
+    "token": "modules/rise-of-venegon/assets/tokens/dark-elves/last-door-cell/thread-borne-retriever.png"
+  }
+}
