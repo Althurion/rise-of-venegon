@@ -3,11 +3,11 @@
 Rise of Venegon is a Foundry Virtual Tabletop content module for Foundry v14
 Build 365 and the Dungeons & Dragons Fifth Edition system v5.3.3.
 
-Version 0.2.0 contains 120 ready-to-play NPC Actors from *Beneath the Living
-Mist* and *Beneath the Living Mist, Volume II: Classbound NPCs of the Umbral
-Marches*. They are held in one Actor compendium and arranged into nested
-folders for Dark Elves, Grey Dwarves, Deepwatch Dwarves, and three adventuring
-parties.
+Version 0.3.0 contains the 120 remastered NPC Actors from *Beneath the Living
+Mist*, Volumes I and II. Every previous statblock has been replaced while actor
+IDs and compendium paths remain stable. The Actors are held in one compendium
+and arranged into nested folders for Dark Elves, Grey Dwarves, Deepwatch
+Dwarves, and three adventuring parties.
 
 ## Install
 
@@ -29,6 +29,8 @@ compendium will appear in the Compendium Packs sidebar.
 - Attacks use exact statblock attack bonuses and roll their damage parts.
 - Saving-throw actions prompt for the listed DC and roll damage where present.
 - Healing actions roll healing.
+- Full spell lists are retained on the Spellcasting feature; spellcasting
+  ability, caster level, and spell-slot resources are populated.
 - Recharge, daily uses, and legendary-action costs are represented by dnd5e
   activities and resources.
 - Prototype tokens are unlinked and use Foundry's placeholder until artwork is
@@ -43,19 +45,20 @@ npm ci
 npm run build
 ```
 
-New text statblocks can be consolidated with:
+Remastered text statblocks can replace an existing volume with:
 
 ```bash
 npm run import:statblocks -- /path/to/VTT_Statblocks /path/to/NPC_Index.csv
 ```
 
-Add a later volume without replacing existing Actors by passing `--append`,
-an attribution, and a unique path prefix:
+Append the second volume with its attribution, source version, and stable path
+prefix:
 
 ```bash
 npm run import:statblocks -- /path/to/VTT_Statblocks /path/to/NPC_Index.csv \
   --append \
-  --supplement="Beneath the Living Mist, Volume II" \
+  --supplement="Beneath the Living Mist Remastered, Volume II" \
+  --source-version="Remastered 2026-08-03" \
   --path-prefix=volume-ii
 ```
 

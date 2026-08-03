@@ -9,7 +9,8 @@ const readOption = (name, fallback = "") => {
   return args.find((argument) => argument.startsWith(prefix))?.slice(prefix.length) ?? fallback;
 };
 const append = args.includes("--append");
-const supplement = readOption("supplement", "Beneath the Living Mist");
+const supplement = readOption("supplement", "Beneath the Living Mist Remastered");
+const sourceVersion = readOption("source-version", "Remastered 2026-08-03");
 const pathPrefix = readOption("path-prefix");
 const statblockRoot = path.resolve(positional[0] ?? path.join(projectRoot, "..", "source_statblocks", "VTT_Statblocks"));
 const indexPath = path.resolve(positional[1] ?? path.join(projectRoot, "..", "upload", "NPC_Index(1).csv"));
@@ -79,12 +80,18 @@ for (const file of files) {
   npcs.push({
     path: [pathPrefix, relativePath].filter(Boolean).join("/"),
     chapter: metadata.Chapter,
-    party: metadata.Party,
-    section: metadata.Section,
+    party: metadata.Party ?? "",
+    section: metadata.Section || metadata["Battlefield Function"],
     name: metadata.NPC,
     cr: metadata.CR,
     role: metadata.Role,
     supplement,
+    sourceVersion,
+    ledgerId: metadata["Ledger ID"] ?? "",
+    classLens: metadata["Class Lens"] ?? "",
+    faction: metadata.Faction ?? "",
+    mechanicFamily: metadata["Mechanic Family"] ?? "",
+    actualSpells: metadata["Actual Spells"] ?? "",
     text: (await fs.readFile(file, "utf8")).replaceAll("\r\n", "\n").trim()
   });
 }
@@ -94,7 +101,8 @@ if (npcs.length !== indexRows.length) {
 }
 
 let output = {
-  supplement: "Beneath the Living Mist",
+  supplement,
+  sourceVersion,
   rules: "2014",
   npcs
 };

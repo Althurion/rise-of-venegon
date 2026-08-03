@@ -17,6 +17,7 @@ async function readJsonFiles(directory) {
 
 const moduleJson = JSON.parse(await fs.readFile(modulePath, "utf8"));
 const source = JSON.parse(await fs.readFile(sourcePath, "utf8"));
+const sourceByPath = new Map(source.npcs.map((record) => [record.path, record]));
 const actors = await readJsonFiles(actorRoot);
 const folders = await readJsonFiles(folderRoot);
 const report = JSON.parse(await fs.readFile(path.join(generatedRoot, "_build-report.json"), "utf8"));
@@ -30,6 +31,7 @@ let attackCount = 0;
 let saveCount = 0;
 let healCount = 0;
 let placeholderCount = 0;
+let spellcasterCount = 0;
 
 if (moduleJson.id !== "rise-of-venegon") errors.push("module.json id must be rise-of-venegon");
 if (moduleJson.compatibility.minimum !== "14.365") errors.push("Foundry minimum compatibility must be 14.365");
@@ -53,6 +55,20 @@ for (const actor of actors) {
   if (!Number.isFinite(actor.system?.details?.cr)) errors.push(`${actor.name} has an invalid CR`);
   if (actor.prototypeToken?.actorLink !== false) errors.push(`${actor.name} must use an unlinked prototype token`);
   if (actor.flags?.["rise-of-venegon"]?.placeholderArt) placeholderCount += 1;
+  const sourceRecord = sourceByPath.get(actor.flags?.["rise-of-venegon"]?.sourcePath);
+  if (!sourceRecord) errors.push(`${actor.name} has no matching source record`);
+
+  if (sourceRecord?.actualSpells === "Yes") {
+    spellcasterCount += 1;
+    const spellcasting = actor.items.find((item) => item.name === "Spellcasting");
+    if (!spellcasting) errors.push(`${actor.name} is missing its Spellcasting feature`);
+    else if (!/(?:Cantrips|1st level).*<br>|<br>.*(?:Cantrips|1st level)/i.test(spellcasting.system.description.value)) {
+      errors.push(`${actor.name} Spellcasting feature is missing its spell list`);
+    }
+    if (!actor.system.attributes.spellcasting) errors.push(`${actor.name} has no spellcasting ability`);
+    if (!actor.system.attributes.spell.level) errors.push(`${actor.name} has no spellcaster level`);
+    if (!Object.keys(actor.system.spells ?? {}).length) errors.push(`${actor.name} has no spell slots`);
+  }
 
   const itemIds = new Set();
   for (const item of actor.items) {
@@ -134,6 +150,12 @@ if (!attackCount) errors.push("No attack activities were generated");
 if (!saveCount) errors.push("No saving throw activities were generated");
 if (!healCount) warnings.push("No healing activities were generated");
 
+const ledgerIds = source.npcs.map((record) => record.ledgerId).filter(Boolean);
+if (ledgerIds.length && ledgerIds.length !== source.npcs.length) {
+  errors.push(`Only ${ledgerIds.length}/${source.npcs.length} source records have ledger IDs`);
+}
+if (new Set(ledgerIds).size !== ledgerIds.length) errors.push("Source ledger IDs are not unique");
+
 console.log(JSON.stringify({
   actors: actors.length,
   folders: folders.length,
@@ -142,6 +164,7 @@ console.log(JSON.stringify({
   attacks: attackCount,
   saves: saveCount,
   heals: healCount,
+  spellcasters: spellcasterCount,
   placeholderArt: placeholderCount,
   parserWarnings: warnings.length
 }, null, 2));

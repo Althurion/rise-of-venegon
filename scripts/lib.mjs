@@ -442,7 +442,7 @@ function makeFeature(actorId, rawTitle, description, section, index, sourceName)
     img: featureIcon(section, activities),
     system: {
       description: {
-        value: `<p>${escapeHtml(description)}</p>`,
+        value: `<p>${escapeHtml(description).replaceAll("\n", "<br>")}</p>`,
         chat: ""
       },
       source: {
@@ -663,40 +663,48 @@ function parseFeatures(lines, actorId, warnings, sourceName) {
   };
   let section = "traits";
   let legendaryActions = 0;
+  let lastFeature = null;
 
   for (const line of lines) {
     if (line === "Actions") {
       section = "actions";
+      lastFeature = null;
       continue;
     }
     if (line === "Bonus Actions") {
       section = "bonusActions";
+      lastFeature = null;
       continue;
     }
     if (line === "Reactions") {
       section = "reactions";
+      lastFeature = null;
       continue;
     }
     if (line === "Legendary Actions") {
       section = "legendaryActions";
+      lastFeature = null;
       continue;
     }
 
     const legendaryIntro = line.match(/can take\s+(\d+)\s+legendary actions?/i);
     if (legendaryIntro) {
       legendaryActions = Number(legendaryIntro[1]);
+      lastFeature = null;
       continue;
     }
 
     const delimiter = line.indexOf(". ");
     if (delimiter < 1) {
-      warnings.push(`Unparsed feature line: ${line}`);
+      if (lastFeature) lastFeature.description += `\n${line}`;
+      else warnings.push(`Unparsed feature line: ${line}`);
       continue;
     }
-    sections[section].push({
+    lastFeature = {
       title: line.slice(0, delimiter),
       description: line.slice(delimiter + 2)
-    });
+    };
+    sections[section].push(lastFeature);
   }
 
   const items = [];
@@ -710,6 +718,29 @@ function parseFeatures(lines, actorId, warnings, sourceName) {
 
   addReferencedLegendaryAttacks(items);
   return { items, legendaryActions };
+}
+
+function parseSpellcasting(lines) {
+  const declaration = lines.find((line) => line.startsWith("Spellcasting."));
+  if (!declaration) return { ability: "", level: 0, slots: {} };
+
+  const abilityName = declaration.match(/spellcasting ability is (Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)/i)?.[1];
+  const level = Number(declaration.match(/\b(?:a|an)\s+(\d+)(?:st|nd|rd|th)-level spellcaster\b/i)?.[1] ?? 0);
+  const slots = {};
+  for (const line of lines) {
+    const match = line.match(/^(\d+)(?:st|nd|rd|th) level \((\d+) slots?\):/i);
+    if (!match) continue;
+    slots[`spell${match[1]}`] = {
+      value: Number(match[2]),
+      override: Number(match[2])
+    };
+  }
+
+  return {
+    ability: abilityName ? ABILITY_NAMES[abilityName] : "",
+    level,
+    slots
+  };
 }
 
 export function parseActor(record, folderId, artMap = {}) {
@@ -789,6 +820,7 @@ export function parseActor(record, folderId, artMap = {}) {
   }
 
   const { items, legendaryActions } = parseFeatures(featureLines, actorId, warnings, sourceName);
+  const spellcasting = parseSpellcasting(featureLines);
   const legendaryResistance = items.find((item) => item.name === "Legendary Resistance");
   const art = artMap[slug] ?? {};
   const img = art.img ?? "icons/svg/mystery-man.svg";
@@ -829,8 +861,8 @@ export function parseActor(record, folderId, artMap = {}) {
         movement: parseMovement(speedLine),
         attunement: { max: 3 },
         senses: parseSenses(senseLine),
-        spellcasting: "",
-        spell: { level: 0 },
+        spellcasting: spellcasting.ability,
+        spell: { level: spellcasting.level },
         exhaustion: 0,
         concentration: {
           ability: "",
@@ -888,7 +920,7 @@ export function parseActor(record, folderId, artMap = {}) {
       currency: { pp: 0, gp: 0, ep: 0, sp: 0, cp: 0 },
       skills,
       tools: {},
-      spells: {},
+      spells: spellcasting.slots,
       bonuses: {
         mwak: { attack: "", damage: "" },
         rwak: { attack: "", damage: "" },
@@ -984,6 +1016,12 @@ export function parseActor(record, folderId, artMap = {}) {
         section: record.section,
         party: record.party,
         sourcePath: record.path,
+        sourceVersion: record.sourceVersion ?? "",
+        ledgerId: record.ledgerId ?? "",
+        classLens: record.classLens ?? "",
+        faction: record.faction ?? "",
+        mechanicFamily: record.mechanicFamily ?? "",
+        actualSpells: record.actualSpells ?? "",
         placeholderArt: !art.img && !art.token
       }
     },
